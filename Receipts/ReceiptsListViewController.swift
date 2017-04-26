@@ -19,15 +19,16 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Basic", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptTableViewCell", for: indexPath) as! ReceiptTableViewCell
         let receipt = receipts[indexPath.row]
-        cell.textLabel?.text = receipt.title
+        cell.titleLabel.text = receipt.title
+        cell.amountLabel.text = "$\(receipt.amount)"
         return cell
     }
     
     func buildSampleReceipts() {
         for n in 1...100 {
-            let newReceipt = Receipt(title: "Receipt Number \(n)")
+            let newReceipt = Receipt(title: "Receipt Number \(n)", date: Date(), amount: n)
             receipts.append(newReceipt)
         }
     }

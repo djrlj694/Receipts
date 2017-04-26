@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,22 +26,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Basic" textLabel="ei1-0n-KRa" style="IBUITableViewCellStyleDefault" id="4y9-61-M0P">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptTableViewCell" id="4y9-61-M0P" customClass="ReceiptTableViewCell" customModule="Receipts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4y9-61-M0P" id="Qzo-Oe-MRv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ei1-0n-KRa">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-J5-9Kp">
+                                                    <rect key="frame" x="8" y="11" width="306" height="21"/>
+                                                    <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="400" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdh-qS-72a">
+                                                    <rect key="frame" x="322" y="11" width="45" height="21"/>
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jdh-qS-72a" firstAttribute="trailing" secondItem="Qzo-Oe-MRv" secondAttribute="trailingMargin" id="0XY-3B-lT7"/>
+                                                <constraint firstItem="SnL-J5-9Kp" firstAttribute="leading" secondItem="Qzo-Oe-MRv" secondAttribute="leadingMargin" id="GXg-ur-NaU"/>
+                                                <constraint firstItem="Jdh-qS-72a" firstAttribute="leading" secondItem="SnL-J5-9Kp" secondAttribute="trailing" constant="8" id="K5C-lf-Nzd"/>
+                                                <constraint firstItem="SnL-J5-9Kp" firstAttribute="centerY" secondItem="Qzo-Oe-MRv" secondAttribute="centerY" id="Khs-Im-IaC"/>
+                                                <constraint firstItem="Jdh-qS-72a" firstAttribute="baseline" secondItem="SnL-J5-9Kp" secondAttribute="baseline" id="Ytj-LO-KbX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="Jdh-qS-72a" id="Tqj-Lv-eCO"/>
+                                            <outlet property="titleLabel" destination="SnL-J5-9Kp" id="kfX-Qm-T4u"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
