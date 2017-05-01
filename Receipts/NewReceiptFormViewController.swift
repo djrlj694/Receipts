@@ -20,6 +20,9 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
         datePickerInputView.datePickerMode = .dateAndTime
         datePickerInputView.delegate = self
         dateTextField.inputView = datePickerInputView
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(tapAction(sender:)))
+        view.addGestureRecognizer(tapGR)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,10 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             return false
         }
         return true
+    }
+    
+    func tapAction(sender: UITapGestureRecognizer) {
+        view.endEditing(false)
     }
     
 }
