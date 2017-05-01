@@ -1,6 +1,6 @@
 import UIKit
 
-class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptFormViewControllerDelegate {
 
     var receipts: [Receipt] = []
     
@@ -24,6 +24,10 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
             let receipt = receipts[indexPath.row]
             let vc = segue.destination as! ReceiptDetailViewController
             vc.receipt = receipt
+        } else if segue.identifier == "showNewForm" {
+            let navigationController = segue.destination as! UINavigationController
+            let vc = navigationController.topViewController as! NewReceiptFormViewController
+            vc.delegate = self
         }
     }
     
@@ -46,6 +50,14 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
             let newReceipt = Receipt(title: "Receipt Number \(n)", date: Date(), amount: NSDecimalNumber(value: n))
             receipts.append(newReceipt)
         }
+    }
+    
+    func newReceiptFormViewControllerDidSave() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func newReceiptFormViewControllerDidCancel() {
+        dismiss(animated: true, completion: nil)
     }
 
 }

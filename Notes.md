@@ -8,3 +8,4 @@
 * Consider using ViewModel for cells.
 * How do we avoid or make safer the casting of cell classes?
 * Duplication of UI update code in details
+* New/Edit Form should be handed a struct and not an instance to avoid edits to the value and then a cancel.
