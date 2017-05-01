@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Receipts List View Controller-->
+        <!--Receipts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ReceiptsListViewController" customModule="Receipts" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                             <constraint firstItem="CeQ-uD-eFO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tfe-Sc-i3d"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ejL-Zi-RCl"/>
+                    <navigationItem key="navigationItem" title="Receipts" id="ejL-Zi-RCl"/>
                     <connections>
                         <outlet property="tableView" destination="CeQ-uD-eFO" id="J22-z0-GbC"/>
                     </connections>
@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="1088.8" y="-189.3553223388306"/>
         </scene>
-        <!--Receipt Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="7Nc-As-WOM">
             <objects>
                 <viewController id="08h-bV-Qjd" customClass="ReceiptDetailViewController" customModule="Receipts" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,6 +154,7 @@
                             <constraint firstItem="6EU-YV-CEx" firstAttribute="width" secondItem="e02-kj-kbf" secondAttribute="width" id="xLS-FB-u77"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Detail" id="qj2-UO-F6E"/>
                     <connections>
                         <outlet property="amountLabel" destination="Tq5-yC-oKd" id="cgb-U2-qf0"/>
                         <outlet property="dateLabel" destination="rQX-9b-8Ra" id="5cg-YI-F8a"/>
@@ -162,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uas-Lf-UDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888.8" y="-189.3553223388306"/>
+            <point key="canvasLocation" x="1834" y="-189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mDF-fF-Kov">
