@@ -60,11 +60,15 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func newReceiptFormViewControllerDidSave() {
-        dismiss(animated: true, completion: nil)
+        if view.endEditing(false) {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func newReceiptFormViewControllerDidCancel() {
-        dismiss(animated: true, completion: nil)
+        if view.endEditing(false) {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
 }
