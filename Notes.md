@@ -7,3 +7,4 @@
 * How do we refactor autolayout?
 * Consider using ViewModel for cells.
 * How do we avoid or make safer the casting of cell classes?
+* Duplication of UI update code in details
