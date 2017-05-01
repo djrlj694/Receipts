@@ -16,6 +16,8 @@
 		1A4D82761EB0320C00C6BCD8 /* ReceiptsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D82751EB0320C00C6BCD8 /* ReceiptsUITests.swift */; };
 		1A73EF891EB7C19300089FD3 /* ReceiptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73EF881EB7C19300089FD3 /* ReceiptDetailViewController.swift */; };
 		1A73EF8B1EB7D26500089FD3 /* NewReceiptFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */; };
+		1A73EF8D1EB7DC0A00089FD3 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73EF8C1EB7DC0A00089FD3 /* DatePickerInputView.swift */; };
+		1A73EF8F1EB7DCAD00089FD3 /* DatePickerInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */; };
 		1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF241EB033F30019DEA2 /* Receipt.swift */; };
 		1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		1A4D82771EB0320C00C6BCD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A73EF881EB7C19300089FD3 /* ReceiptDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewController.swift; sourceTree = "<group>"; };
 		1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReceiptFormViewController.swift; sourceTree = "<group>"; };
+		1A73EF8C1EB7DC0A00089FD3 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
+		1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerInputView.xib; sourceTree = "<group>"; };
 		1AD4AF241EB033F30019DEA2 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1AD4AF261EB036AF0019DEA2 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				1AD4AF241EB033F30019DEA2 /* Receipt.swift */,
 				1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */,
 				1A4D82591EB0320B00C6BCD8 /* Main.storyboard */,
+				1A73EF8C1EB7DC0A00089FD3 /* DatePickerInputView.swift */,
+				1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */,
 				1A4D825C1EB0320B00C6BCD8 /* Assets.xcassets */,
 				1A4D825E1EB0320B00C6BCD8 /* LaunchScreen.storyboard */,
 				1A4D82611EB0320B00C6BCD8 /* Info.plist */,
@@ -249,6 +255,7 @@
 				1A4D82601EB0320B00C6BCD8 /* LaunchScreen.storyboard in Resources */,
 				1A4D825D1EB0320B00C6BCD8 /* Assets.xcassets in Resources */,
 				1A4D825B1EB0320B00C6BCD8 /* Main.storyboard in Resources */,
+				1A73EF8F1EB7DCAD00089FD3 /* DatePickerInputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +285,7 @@
 				1A73EF8B1EB7D26500089FD3 /* NewReceiptFormViewController.swift in Sources */,
 				1A4D82581EB0320B00C6BCD8 /* ReceiptsListViewController.swift in Sources */,
 				1A4D82561EB0320B00C6BCD8 /* AppDelegate.swift in Sources */,
+				1A73EF8D1EB7DC0A00089FD3 /* DatePickerInputView.swift in Sources */,
 				1A73EF891EB7C19300089FD3 /* ReceiptDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

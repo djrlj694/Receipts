@@ -11,6 +11,13 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         buildSampleReceipts()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
