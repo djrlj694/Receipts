@@ -4,6 +4,9 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
 
     var receipts: [Receipt] = []
     
+    @IBOutlet var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildSampleReceipts()
@@ -12,6 +15,16 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)!
+            let receipt = receipts[indexPath.row]
+            let vc = segue.destination as! ReceiptDetailViewController
+            vc.receipt = receipt
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
