@@ -41,7 +41,7 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     
     func buildSampleReceipts() {
         for n in 1...100 {
-            let newReceipt = Receipt(title: "Receipt Number \(n)", date: Date(), amount: n)
+            let newReceipt = Receipt(title: "Receipt Number \(n)", date: Date(), amount: NSDecimalNumber(value: n))
             receipts.append(newReceipt)
         }
     }
