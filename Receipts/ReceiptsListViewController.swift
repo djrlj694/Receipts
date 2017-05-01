@@ -35,7 +35,9 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptTableViewCell", for: indexPath) as! ReceiptTableViewCell
         let receipt = receipts[indexPath.row]
         cell.titleLabel.text = receipt.title
-        cell.amountLabel.text = "$\(receipt.amount)"
+        let f1 = NumberFormatter()
+        f1.numberStyle = .currency
+        cell.amountLabel.text = f1.string(from: receipt.amount)
         return cell
     }
     
