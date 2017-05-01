@@ -6,3 +6,4 @@
 * How do we test autolayout?
 * How do we refactor autolayout?
 * Consider using ViewModel for cells.
+* How do we avoid or make safer the casting of cell classes?
