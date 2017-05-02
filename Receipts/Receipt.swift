@@ -1,13 +1,15 @@
-import Foundation
+import UIKit
 
 class Receipt: NSObject {
-    let title: String
-    let date: Date
-    let amount: NSDecimalNumber
+    var title: String
+    var date: Date
+    var amount: NSDecimalNumber
+    var photo: UIImage?
     
-    init(title: String, date: Date, amount: NSDecimalNumber) {
+    init(title: String, date: Date, amount: NSDecimalNumber, photo: UIImage? = nil) {
         self.title = title
         self.date = date
         self.amount = amount
+        self.photo = photo
     }
 }

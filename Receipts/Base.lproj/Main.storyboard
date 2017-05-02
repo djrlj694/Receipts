@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="faa-2a-Ybb">
-                                <rect key="frame" x="16" y="72" width="343" height="100"/>
+                                <rect key="frame" x="16" y="72" width="343" height="595"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-ip-G2V">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -79,6 +79,39 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ip1-z9-mx7">
+                                        <rect key="frame" x="0.0" y="105" width="343" height="313"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-1z-uW9">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="jPH-QF-3v1"/>
+                                                </constraints>
+                                                <state key="normal" title="Add Photo"/>
+                                                <connections>
+                                                    <action selector="addPhotoAction:" destination="ejS-xn-Qsi" eventType="touchUpInside" id="RBn-Uo-O66"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bJQ-pT-lDw">
+                                        <rect key="frame" x="0.0" y="423" width="343" height="172"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ju-ix-GS9">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qb-aR-Lj7">
+                                                <rect key="frame" x="0.0" y="128" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="3il-FD-PGp"/>
+                                                </constraints>
+                                                <state key="normal" title="Remove Photo"/>
+                                                <connections>
+                                                    <action selector="removePhotoAction:" destination="ejS-xn-Qsi" eventType="touchUpInside" id="p7z-d4-sZ9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ASM-3N-7iM" firstAttribute="width" secondItem="UdO-Ub-Wz3" secondAttribute="width" id="ZS2-Z4-zPP"/>
@@ -89,6 +122,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="faa-2a-Ybb" firstAttribute="top" secondItem="PXH-Nj-PGr" secondAttribute="bottom" constant="8" symbolic="YES" id="BXh-TX-0l4"/>
+                            <constraint firstItem="3zZ-R2-KLj" firstAttribute="top" secondItem="faa-2a-Ybb" secondAttribute="bottom" id="KyE-mo-GEL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="faa-2a-Ybb" secondAttribute="trailing" id="TJZ-qP-v0v"/>
                             <constraint firstItem="faa-2a-Ybb" firstAttribute="leading" secondItem="kge-8G-NrR" secondAttribute="leadingMargin" id="wbN-CE-DZr"/>
                         </constraints>
@@ -106,14 +140,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoRow" destination="Ip1-z9-mx7" id="aEA-ES-vS8"/>
                         <outlet property="amountTextField" destination="OcH-Yj-AFV" id="lqk-uZ-Ade"/>
                         <outlet property="dateTextField" destination="Tlh-Vs-ci2" id="zCI-vk-SnD"/>
+                        <outlet property="mainStackView" destination="faa-2a-Ybb" id="Zwb-NG-QCT"/>
+                        <outlet property="photoImageView" destination="1ju-ix-GS9" id="sqo-vN-qR4"/>
+                        <outlet property="removePhotoRow" destination="bJQ-pT-lDw" id="4gb-lv-s5T"/>
                         <outlet property="titleTextField" destination="rEM-j3-Df2" id="lmW-t6-8qn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuP-0U-tAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="-844.22788605697156"/>
+            <point key="canvasLocation" x="2017" y="-934"/>
         </scene>
         <!--Receipts-->
         <scene sceneID="tne-QT-ifu">

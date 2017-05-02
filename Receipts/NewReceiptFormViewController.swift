@@ -5,13 +5,19 @@ protocol NewReceiptFormViewControllerDelegate: class {
     func newReceiptFormViewControllerDidCancel()
 }
 
-class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegate, UITextFieldDelegate {
+class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     weak var delegate: NewReceiptFormViewControllerDelegate?
+    var photo: UIImage?
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var dateTextField: UITextField!
+    
+    @IBOutlet var mainStackView: UIStackView!
+    @IBOutlet var addPhotoRow: UIStackView!
+    @IBOutlet var removePhotoRow: UIStackView!
+    @IBOutlet var photoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,8 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tapAction(sender:)))
         view.addGestureRecognizer(tapGR)
+        
+        updateFormUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +69,45 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
     
     func tapAction(sender: UITapGestureRecognizer) {
         view.endEditing(false)
+    }
+    
+    @IBAction func addPhotoAction(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePickerController.sourceType = .camera
+        } else {
+            imagePickerController.sourceType = .photoLibrary
+        }
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func removePhotoAction(_ sender: UIButton) {
+        photo = nil
+        updateFormUI()
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            photo = image
+        }
+        updateFormUI()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func updateFormUI() {
+        if photo != nil {
+            addPhotoRow.isHidden = true
+            removePhotoRow.isHidden = false
+        } else {
+            addPhotoRow.isHidden = false
+            removePhotoRow.isHidden = true
+        }
+        photoImageView.image = photo
     }
     
 }
