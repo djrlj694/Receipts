@@ -25,11 +25,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="faa-2a-Ybb">
                                 <rect key="frame" x="16" y="72" width="343" height="595"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-ip-G2V">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ym3-ip-G2V">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASM-3N-7iM">
-                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -42,11 +42,11 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="voH-CV-a26">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="voH-CV-a26">
                                         <rect key="frame" x="0.0" y="35" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdO-Ub-Wz3">
-                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -59,11 +59,11 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g5y-tr-AOy">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g5y-tr-AOy">
                                         <rect key="frame" x="0.0" y="70" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwZ-ru-GwK">
-                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -79,14 +79,11 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ip1-z9-mx7">
-                                        <rect key="frame" x="0.0" y="105" width="343" height="313"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="500" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ip1-z9-mx7">
+                                        <rect key="frame" x="0.0" y="105" width="343" height="327"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-1z-uW9">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="jPH-QF-3v1"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                                 <state key="normal" title="Add Photo"/>
                                                 <connections>
                                                     <action selector="addPhotoAction:" destination="ejS-xn-Qsi" eventType="touchUpInside" id="RBn-Uo-O66"/>
@@ -95,16 +92,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bJQ-pT-lDw">
-                                        <rect key="frame" x="0.0" y="423" width="343" height="172"/>
+                                        <rect key="frame" x="0.0" y="437" width="343" height="158"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ju-ix-GS9">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qb-aR-Lj7">
-                                                <rect key="frame" x="0.0" y="128" width="343" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="3il-FD-PGp"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="128" width="343" height="30"/>
                                                 <state key="normal" title="Remove Photo"/>
                                                 <connections>
                                                     <action selector="removePhotoAction:" destination="ejS-xn-Qsi" eventType="touchUpInside" id="p7z-d4-sZ9"/>
