@@ -7,6 +7,7 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
             let f2 = DateFormatter()
             f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
             dateLabel.text = f2.string(from: receipt.date)
+            imageView.image = receipt.photo
         }
     }
     
@@ -43,6 +45,7 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
             let f2 = DateFormatter()
             f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
             dateLabel.text = f2.string(from: receipt.date)
+            imageView.image = receipt.photo
         }
         
         if view.endEditing(false) {

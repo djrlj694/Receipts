@@ -31,6 +31,17 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(tapAction(sender:)))
         view.addGestureRecognizer(tapGR)
         
+        if let receipt = editingReceipt {
+            titleTextField.text = receipt.title
+            let f1 = NumberFormatter()
+            f1.numberStyle = .currency
+            amountTextField.text = f1.string(from: receipt.amount)
+            let f2 = DateFormatter()
+            f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
+            dateTextField.text = f2.string(from: receipt.date)
+            photo = receipt.photo
+        }
+        
         updateFormUI()
     }
 
@@ -101,6 +112,9 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
                 f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
                 editingReceipt.date = f2.date(from: dateText)!
             }
+            
+            editingReceipt.photo = photo
+            
             delegate?.newReceiptFormViewControllerDidSaveReceipt(receipt: editingReceipt)
 
         } else {
@@ -173,6 +187,7 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
     }
     
     func updateFormUI() {
+        
         if photo != nil {
             addPhotoRow.isHidden = true
             removePhotoRow.isHidden = false
@@ -181,16 +196,6 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             removePhotoRow.isHidden = true
         }
         photoImageView.image = photo
-        
-        if let receipt = editingReceipt {
-            titleTextField.text = receipt.title
-            let f1 = NumberFormatter()
-            f1.numberStyle = .currency
-            amountTextField.text = f1.string(from: receipt.amount)
-            let f2 = DateFormatter()
-            f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
-            dateTextField.text = f2.string(from: receipt.date)
-        }
         
     }
     
