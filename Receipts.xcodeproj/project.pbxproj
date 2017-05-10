@@ -18,6 +18,8 @@
 		1A73EF8B1EB7D26500089FD3 /* NewReceiptFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */; };
 		1A73EF8D1EB7DC0A00089FD3 /* DatePickerInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A73EF8C1EB7DC0A00089FD3 /* DatePickerInputView.swift */; };
 		1A73EF8F1EB7DCAD00089FD3 /* DatePickerInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */; };
+		1AB24BCD1EC36A5F005E52B1 /* ReceiptRemoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB24BCC1EC36A5F005E52B1 /* ReceiptRemoteStore.swift */; };
+		1AB24BCF1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB24BCE1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift */; };
 		1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF241EB033F30019DEA2 /* Receipt.swift */; };
 		1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReceiptFormViewController.swift; sourceTree = "<group>"; };
 		1A73EF8C1EB7DC0A00089FD3 /* DatePickerInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerInputView.swift; sourceTree = "<group>"; };
 		1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerInputView.xib; sourceTree = "<group>"; };
+		1AB24BCC1EC36A5F005E52B1 /* ReceiptRemoteStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptRemoteStore.swift; sourceTree = "<group>"; };
+		1AB24BCE1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomRemoteStoreDataSource.swift; sourceTree = "<group>"; };
 		1AD4AF241EB033F30019DEA2 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1AD4AF261EB036AF0019DEA2 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */,
 				1AD4AF241EB033F30019DEA2 /* Receipt.swift */,
 				1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */,
+				1AB24BCC1EC36A5F005E52B1 /* ReceiptRemoteStore.swift */,
+				1AB24BCE1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift */,
 				1A4D82591EB0320B00C6BCD8 /* Main.storyboard */,
 				1A73EF8C1EB7DC0A00089FD3 /* DatePickerInputView.swift */,
 				1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */,
@@ -280,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB24BCD1EC36A5F005E52B1 /* ReceiptRemoteStore.swift in Sources */,
 				1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */,
 				1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */,
 				1A73EF8B1EB7D26500089FD3 /* NewReceiptFormViewController.swift in Sources */,
@@ -287,6 +294,7 @@
 				1A4D82561EB0320B00C6BCD8 /* AppDelegate.swift in Sources */,
 				1A73EF8D1EB7DC0A00089FD3 /* DatePickerInputView.swift in Sources */,
 				1A73EF891EB7C19300089FD3 /* ReceiptDetailViewController.swift in Sources */,
+				1AB24BCF1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

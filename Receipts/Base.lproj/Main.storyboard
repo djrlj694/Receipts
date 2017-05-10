@@ -176,7 +176,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4y9-61-M0P" id="Qzo-Oe-MRv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-J5-9Kp">
@@ -222,6 +222,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Receipts" id="ejL-Zi-RCl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="0Uy-O6-XBY">
+                            <connections>
+                                <action selector="syncReceipts:" destination="BYZ-38-t0r" id="jRn-Ci-JNX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OoZ-em-mbr">
                             <connections>
                                 <action selector="showNewReceiptForm:" destination="BYZ-38-t0r" id="jKW-bu-hjS"/>
@@ -362,6 +367,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vr0-t7-8fy"/>
+        <segue reference="Sbw-Gb-ynK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -2,14 +2,13 @@ import UIKit
 
 class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptFormViewControllerDelegate {
 
+    let remoteStore = ReceiptRemoteStore()
     var receipts: [Receipt] = []
     
     @IBOutlet var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //buildSampleReceipts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,13 +51,6 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
-    func buildSampleReceipts() {
-        for n in 1...100 {
-            let newReceipt = Receipt(title: "Receipt Number \(n)", date: Date(), amount: NSDecimalNumber(value: n))
-            receipts.append(newReceipt)
-        }
-    }
-    
     func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt) {
         
         if !receipts.contains(receipt) {
@@ -75,6 +67,12 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         if view.endEditing(false) {
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func syncReceipts(_ sender: UIBarButtonItem) {
+        let newReceipts = remoteStore.getNewRecieptsSinceLastSync()
+        receipts.append(contentsOf: newReceipts)
+        tableView.reloadData()
     }
 
 }
