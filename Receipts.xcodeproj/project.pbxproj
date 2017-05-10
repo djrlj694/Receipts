@@ -20,6 +20,7 @@
 		1A73EF8F1EB7DCAD00089FD3 /* DatePickerInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */; };
 		1AB24BCD1EC36A5F005E52B1 /* ReceiptRemoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB24BCC1EC36A5F005E52B1 /* ReceiptRemoteStore.swift */; };
 		1AB24BCF1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB24BCE1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift */; };
+		1AB24BD11EC3A9DD005E52B1 /* sample-receipt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AB24BD01EC3A9DD005E52B1 /* sample-receipt.jpg */; };
 		1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF241EB033F30019DEA2 /* Receipt.swift */; };
 		1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerInputView.xib; sourceTree = "<group>"; };
 		1AB24BCC1EC36A5F005E52B1 /* ReceiptRemoteStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptRemoteStore.swift; sourceTree = "<group>"; };
 		1AB24BCE1EC36E71005E52B1 /* RandomRemoteStoreDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomRemoteStoreDataSource.swift; sourceTree = "<group>"; };
+		1AB24BD01EC3A9DD005E52B1 /* sample-receipt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sample-receipt.jpg"; sourceTree = "<group>"; };
 		1AD4AF241EB033F30019DEA2 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1AD4AF261EB036AF0019DEA2 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				1A73EF8E1EB7DCAD00089FD3 /* DatePickerInputView.xib */,
 				1A4D825C1EB0320B00C6BCD8 /* Assets.xcassets */,
 				1A4D825E1EB0320B00C6BCD8 /* LaunchScreen.storyboard */,
+				1AB24BD01EC3A9DD005E52B1 /* sample-receipt.jpg */,
 				1A4D82611EB0320B00C6BCD8 /* Info.plist */,
 			);
 			path = Receipts;
@@ -262,6 +265,7 @@
 				1A4D825D1EB0320B00C6BCD8 /* Assets.xcassets in Resources */,
 				1A4D825B1EB0320B00C6BCD8 /* Main.storyboard in Resources */,
 				1A73EF8F1EB7DCAD00089FD3 /* DatePickerInputView.xib in Resources */,
+				1AB24BD11EC3A9DD005E52B1 /* sample-receipt.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

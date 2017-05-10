@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol ReceiptRemoteStoreDataSource {
     func getNewRecieptsSinceLastSync() -> Data?
@@ -28,7 +28,17 @@ class ReceiptRemoteStore {
                 let dateString = item["date"] as! String
                 let date = dateFormatter.date(from: dateString)!
                 
-                let newReceipt = Receipt(title: title, date: date, amount: amount)
+                // We're going to pretend that the JSON source gave us a URL to a photo and we downloaded it
+                // but for now, let's just use a sample image
+                // NOTE: We this Data dance to avoid native caching systems of UIImage
+                // The idea here is to simulate different images, so even though we are using the same source file
+                // we want to feel like these are all different images.
+                let resourceURL = Bundle.main.resourceURL
+                let sampleReceiptURL = resourceURL!.appendingPathComponent("sample-receipt.jpg")
+                let imageData = try! Data(contentsOf: sampleReceiptURL)
+                let receiptImage = UIImage(data: imageData)
+                
+                let newReceipt = Receipt(title: title, date: date, amount: amount, photo: receiptImage)
                 newReceipts.append(newReceipt)
             }
         }
