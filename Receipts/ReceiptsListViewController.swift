@@ -9,7 +9,7 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buildSampleReceipts()
+        //buildSampleReceipts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +59,13 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    func newReceiptFormViewControllerDidSave() {
+    func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt) {
+        
+        if !receipts.contains(receipt) {
+            receipts.append(receipt)
+        }
+        tableView.reloadData()
+        
         if view.endEditing(false) {
             dismiss(animated: true, completion: nil)
         }

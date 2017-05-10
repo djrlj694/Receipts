@@ -1,7 +1,7 @@
 import UIKit
 
 protocol NewReceiptFormViewControllerDelegate: class {
-    func newReceiptFormViewControllerDidSave()
+    func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt)
     func newReceiptFormViewControllerDidCancel()
 }
 
@@ -9,6 +9,7 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
 
     weak var delegate: NewReceiptFormViewControllerDelegate?
     var photo: UIImage?
+    var editingReceipt: Receipt?
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var amountTextField: UITextField!
@@ -39,11 +40,70 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        guard view.endEditing(false) else {
+            return
+        }
         delegate?.newReceiptFormViewControllerDidCancel()
     }
     
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
-        delegate?.newReceiptFormViewControllerDidSave()
+        
+        guard view.endEditing(false) else {
+            return
+        }
+        
+        // validate title
+        if let potentialTitle = titleTextField.text {
+            if potentialTitle.characters.count < 3 {
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                let alertVC = UIAlertController(title: "Invalid Title", message: "Title requires more than 3 characters.", preferredStyle: .alert)
+                alertVC.addAction(ok)
+                present(alertVC, animated: true, completion: nil)
+                return
+            }
+        } else {
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let alertVC = UIAlertController(title: "Invalid Title", message: "Title required.", preferredStyle: .alert)
+            alertVC.addAction(ok)
+            present(alertVC, animated: true, completion: nil)
+            return
+        }
+        
+        // validate date
+        if dateTextField.text == nil || dateTextField.text!.isEmpty  {
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let alertVC = UIAlertController(title: "Invalid Date", message: "Date required.", preferredStyle: .alert)
+            alertVC.addAction(ok)
+            present(alertVC, animated: true, completion: nil)
+            return
+        }
+        
+        if let editingReceipt = editingReceipt {
+            
+            editingReceipt.title = titleTextField.text!
+            editingReceipt.amount = NSDecimalNumber(string: amountTextField.text)
+            
+            if let dateText = dateTextField.text {
+                let f2 = DateFormatter()
+                f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
+                editingReceipt.date = f2.date(from: dateText)!
+            }
+            delegate?.newReceiptFormViewControllerDidSaveReceipt(receipt: editingReceipt)
+
+        } else {
+            
+            let title = titleTextField.text!
+            let amount = NSDecimalNumber(string: amountTextField.text)
+            
+            let f2 = DateFormatter()
+            f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
+            let date = f2.date(from: dateTextField.text!)!
+            
+            let newReceipt = Receipt(title: title, date: date, amount: amount, photo: photo)
+            delegate?.newReceiptFormViewControllerDidSaveReceipt(receipt: newReceipt)
+
+        }
+        
     }
     
     func updateDateTextFieldFromPicker() {
