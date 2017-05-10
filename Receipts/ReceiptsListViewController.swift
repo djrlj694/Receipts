@@ -4,12 +4,26 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
 
     let remoteStore = ReceiptRemoteStore()
     var receipts: [Receipt] = []
+    var saveNotificationObserver: NSObjectProtocol?
     
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsMultipleSelectionDuringEditing = false
+        
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let documentsURL = URL(fileURLWithPath: documentsPath)
+        let storeURL = documentsURL.appendingPathComponent("db.receipts")
+        if let unarchivedReceipts = NSKeyedUnarchiver.unarchiveObject(withFile: storeURL.path) as? [Receipt] {
+            receipts = unarchivedReceipts
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ReceiptsListViewController.save), name: NSNotification.Name(rawValue: "UIApplicationWillResignActiveNotification"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,15 +73,12 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         }
         tableView.reloadData()
         
-        if view.endEditing(false) {
-            dismiss(animated: true, completion: nil)
-        }
+        save()
+        dismiss(animated: true, completion: nil)
     }
     
     func newReceiptFormViewControllerDidCancel() {
-        if view.endEditing(false) {
-            dismiss(animated: true, completion: nil)
-        }
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func syncReceipts(_ sender: UIBarButtonItem) {
@@ -84,6 +95,16 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         if editingStyle == .delete {
             receipts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func save() {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let documentsURL = URL(fileURLWithPath: documentsPath)
+        let storeURL = documentsURL.appendingPathComponent("db.receipts")
+        let success = NSKeyedArchiver.archiveRootObject(receipts, toFile: storeURL.path)
+        if !success {
+            print("Could not save data.")
         }
     }
 

@@ -33,6 +33,8 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
     
     func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt) {
         
+        precondition(receipt == self.receipt!, "We should only get back the same receipt we passed in.")
+        
         if let receipt = self.receipt {
             titleLabel.text = receipt.title
             let f1 = NumberFormatter()
@@ -53,6 +55,5 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
             dismiss(animated: true, completion: nil)
         }
     }
-
 
 }
