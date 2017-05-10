@@ -9,6 +9,7 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsMultipleSelectionDuringEditing = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +74,17 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         let newReceipts = remoteStore.getNewRecieptsSinceLastSync()
         receipts.append(contentsOf: newReceipts)
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            receipts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 
 }
