@@ -69,6 +69,15 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             return
         }
         
+        // validate amount
+        if amountTextField.text == nil || amountTextField.text!.isEmpty  {
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let alertVC = UIAlertController(title: "Invalid Amount", message: "Amount required.", preferredStyle: .alert)
+            alertVC.addAction(ok)
+            present(alertVC, animated: true, completion: nil)
+            return
+        }
+        
         // validate date
         if dateTextField.text == nil || dateTextField.text!.isEmpty  {
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -81,7 +90,11 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
         if let editingReceipt = editingReceipt {
             
             editingReceipt.title = titleTextField.text!
-            editingReceipt.amount = NSDecimalNumber(string: amountTextField.text)
+            
+            let f1 = NumberFormatter()
+            f1.numberStyle = .currency
+            let amount = f1.number(from: amountTextField.text!)!.decimalValue as NSDecimalNumber
+            editingReceipt.amount = amount
             
             if let dateText = dateTextField.text {
                 let f2 = DateFormatter()
@@ -168,6 +181,17 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             removePhotoRow.isHidden = true
         }
         photoImageView.image = photo
+        
+        if let receipt = editingReceipt {
+            titleTextField.text = receipt.title
+            let f1 = NumberFormatter()
+            f1.numberStyle = .currency
+            amountTextField.text = f1.string(from: receipt.amount)
+            let f2 = DateFormatter()
+            f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
+            dateTextField.text = f2.string(from: receipt.date)
+        }
+        
     }
     
 }

@@ -307,7 +307,13 @@
                             <constraint firstItem="6EU-YV-CEx" firstAttribute="width" secondItem="e02-kj-kbf" secondAttribute="width" id="xLS-FB-u77"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="qj2-UO-F6E"/>
+                    <navigationItem key="navigationItem" title="Detail" id="qj2-UO-F6E">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="F2D-i6-hLb">
+                            <connections>
+                                <segue destination="1MN-1V-BS8" kind="presentation" identifier="showEditForm" id="vr0-t7-8fy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountLabel" destination="Tq5-yC-oKd" id="cgb-U2-qf0"/>
                         <outlet property="dateLabel" destination="rQX-9b-8Ra" id="5cg-YI-F8a"/>
@@ -355,4 +361,7 @@
             <point key="canvasLocation" x="1088.8" y="-844.22788605697156"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vr0-t7-8fy"/>
+    </inferredMetricsTieBreakers>
 </document>
