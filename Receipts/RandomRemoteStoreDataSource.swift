@@ -3,6 +3,12 @@ import Foundation
 class RandomRemoteStoreDataSource: ReceiptRemoteStoreDataSource {
     
     let possibleTitles = ["Parking", "Lunch", "Coffee", "Newspaper", "Parking Ticket"]
+    let dateFormatter: DateFormatter
+    
+    init() {
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    }
     
     // genetaes a JSON response with 5 random receipt descriptions
     func getNewRecieptsSinceLastSync() -> Data? {
@@ -19,9 +25,6 @@ class RandomRemoteStoreDataSource: ReceiptRemoteStoreDataSource {
             let amountDollars = Int.random(0, 99)
             let amountCents = Int.random(0, 99)
             let amount = "\(amountDollars).\(amountCents)"
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             
             if !response.isEmpty {
                 response.append(",")
