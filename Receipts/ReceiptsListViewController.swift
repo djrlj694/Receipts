@@ -6,7 +6,7 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     var receipts: [Receipt] = []
     var saveNotificationObserver: NSObjectProtocol?
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +20,6 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(ReceiptsListViewController.save), name: NSNotification.Name(rawValue: "UIApplicationWillResignActiveNotification"), object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
