@@ -29,4 +29,18 @@ class Receipt: NSObject, NSCoding {
         
         self.init( title: title, date: date, amount: amount, photo: photo)
     }
+    
+    var slackDescription: String {
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .short
+        let styledDate = df.string(from: date)
+        let nf = NumberFormatter()
+        nf.numberStyle = .currency
+        if let styledAmount = nf.string(from: amount) {
+            return "Receipt: \(title), \(styledDate), \(styledAmount)"
+        } else {
+            return "Receipt: \(title), \(styledDate), \(amount)"
+        }
+    }
 }

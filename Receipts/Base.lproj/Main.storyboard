@@ -125,8 +125,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="faa-2a-Ybb" firstAttribute="top" secondItem="PXH-Nj-PGr" secondAttribute="bottom" constant="8" symbolic="YES" id="BXh-TX-0l4"/>
-                            <constraint firstItem="3zZ-R2-KLj" firstAttribute="top" secondItem="faa-2a-Ybb" secondAttribute="bottom" id="KyE-mo-GEL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="faa-2a-Ybb" secondAttribute="trailing" id="TJZ-qP-v0v"/>
+                            <constraint firstItem="3zZ-R2-KLj" firstAttribute="top" secondItem="faa-2a-Ybb" secondAttribute="bottom" id="eWk-2Q-aT7"/>
                             <constraint firstItem="faa-2a-Ybb" firstAttribute="leading" secondItem="kge-8G-NrR" secondAttribute="leadingMargin" id="wbN-CE-DZr"/>
                         </constraints>
                     </view>
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuP-0U-tAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="-934"/>
+            <point key="canvasLocation" x="1894" y="-868"/>
         </scene>
         <!--Receipts-->
         <scene sceneID="tne-QT-ifu">
@@ -291,8 +291,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CNY-Je-CMl">
-                                <rect key="frame" x="16" y="159" width="343" height="488"/>
+                                <rect key="frame" x="16" y="159" width="343" height="444"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXT-oT-k5w">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OAC-KW-gvB"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tL4-TS-yfl"/>
+                                    <barButtonItem systemItem="action" id="P9M-I6-fGM">
+                                        <connections>
+                                            <action selector="share:" destination="08h-bV-Qjd" id="jMn-Oh-3Pf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -300,14 +314,17 @@
                             <constraint firstItem="CNY-Je-CMl" firstAttribute="trailing" secondItem="WQY-eF-gX8" secondAttribute="trailingMargin" id="2CW-6n-28x"/>
                             <constraint firstItem="e02-kj-kbf" firstAttribute="leading" secondItem="WQY-eF-gX8" secondAttribute="leadingMargin" id="41D-sa-yU1"/>
                             <constraint firstItem="6EU-YV-CEx" firstAttribute="top" secondItem="e02-kj-kbf" secondAttribute="bottom" constant="8" id="4iy-6H-jw4"/>
+                            <constraint firstItem="NSr-pU-Xjt" firstAttribute="top" secondItem="tXT-oT-k5w" secondAttribute="bottom" id="9YC-eu-ew4"/>
                             <constraint firstItem="e02-kj-kbf" firstAttribute="top" secondItem="P5t-bN-dj0" secondAttribute="bottom" constant="8" id="C9X-IC-JLg"/>
                             <constraint firstItem="6EU-YV-CEx" firstAttribute="leading" secondItem="e02-kj-kbf" secondAttribute="leading" id="ExV-ud-5EU"/>
                             <constraint firstItem="rQX-9b-8Ra" firstAttribute="baseline" secondItem="iVa-Sp-z43" secondAttribute="baseline" id="HVJ-gG-VKV"/>
-                            <constraint firstItem="NSr-pU-Xjt" firstAttribute="top" secondItem="CNY-Je-CMl" secondAttribute="bottom" constant="20" id="Is5-FW-3vP"/>
                             <constraint firstItem="OZ1-hf-mtO" firstAttribute="baseline" secondItem="e02-kj-kbf" secondAttribute="baseline" id="LVq-0u-qDU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OZ1-hf-mtO" secondAttribute="trailing" id="MZd-MB-bfP"/>
                             <constraint firstItem="iVa-Sp-z43" firstAttribute="width" secondItem="6EU-YV-CEx" secondAttribute="width" id="NNf-Ag-dB4"/>
+                            <constraint firstItem="tXT-oT-k5w" firstAttribute="top" secondItem="CNY-Je-CMl" secondAttribute="bottom" constant="20" id="Rby-3x-wHr"/>
                             <constraint firstItem="Tq5-yC-oKd" firstAttribute="trailing" secondItem="OZ1-hf-mtO" secondAttribute="trailing" id="T1C-hE-JWm"/>
+                            <constraint firstItem="tXT-oT-k5w" firstAttribute="leading" secondItem="WQY-eF-gX8" secondAttribute="leading" id="UC4-m9-Ka7"/>
+                            <constraint firstAttribute="trailing" secondItem="tXT-oT-k5w" secondAttribute="trailing" id="XgN-2d-OkR"/>
                             <constraint firstItem="rQX-9b-8Ra" firstAttribute="trailing" secondItem="Tq5-yC-oKd" secondAttribute="trailing" id="e6D-Y3-cYV"/>
                             <constraint firstItem="rQX-9b-8Ra" firstAttribute="leading" secondItem="iVa-Sp-z43" secondAttribute="trailing" constant="8" symbolic="YES" id="gEe-4L-IGf"/>
                             <constraint firstItem="iVa-Sp-z43" firstAttribute="leading" secondItem="6EU-YV-CEx" secondAttribute="leading" id="i92-qM-qL1"/>

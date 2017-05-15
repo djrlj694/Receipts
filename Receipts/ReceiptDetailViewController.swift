@@ -58,5 +58,65 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
             dismiss(animated: true, completion: nil)
         }
     }
+    
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        let share = UIAlertAction(title: "Share", style: .default, handler:{ (action) in
+            
+            if let receipt = self.receipt {
+                print("share on Slack")
+                let session = URLSession.shared
+                let url = URL(string: "https://hooks.slack.com/services/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")!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                let payload = [ "text" : receipt.slackDescription ]
+                do {
+                    let payloadData = try JSONSerialization.data(withJSONObject: payload, options: [])
+                    request.httpBody = payloadData
+                    let postTask = session.dataTask(with: request, completionHandler: { (data, response, error) in
+                        
+                        if let error = error, data == nil {
+                            print("Got back an error from the server: \(error)")
+                        }
+                        
+                        let httpResponse = response as! HTTPURLResponse
+                        switch httpResponse.statusCode {
+                        case 200...299:
+                            print("successful request")
+                            
+                            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            let alertVC = UIAlertController(title: "Receipt Posted!", message: nil, preferredStyle: .alert)
+                            alertVC.addAction(ok)
+                            self.present(alertVC, animated: true, completion: nil)
+                            
+                        case 300...399:
+                            print("request should be rerouted")
+                        case 400...499:
+                            if let data = data, let response = String(data: data, encoding: .utf8) {
+                                print("problem with the client/request: \(response)")
+                            } else {
+                                print("unknown problem with the client/request")
+                            }
+                        case 500...599:
+                            print("problem with the server")
+                        default:
+                            print("unexpected server response")
+                        }
+                    })
+                    postTask.resume()
+                } catch (let error) {
+                    print("Could not post to Slack: \(error)")
+                }
+                
+            }
+            
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let alertVC = UIAlertController(title: "Share on Slack?", message: "Sharing this receipt will post it's details on Slack.", preferredStyle: .alert)
+        alertVC.addAction(cancel)
+        alertVC.addAction(share)
+        present(alertVC, animated: true, completion: nil)
+    }
 
 }
