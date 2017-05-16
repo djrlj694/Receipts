@@ -10,6 +10,7 @@
 * Everything should have `private` where they can.
 * Consider moving `private` methods to bottom and grouping with `MARK://`.
 * Lack of localization.
+* Might want to consider a fuller design of toasts or in-app notifications.
 
 ## ReceiptsListViewController
 
