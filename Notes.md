@@ -16,6 +16,7 @@
 ## ReceiptStore
 
 * One could imagine ripping out the persistence responsibilities of this class into something more generic.
+* Should have a better way to inform the user when a save fails.
 
 ## ReceiptsListViewController
 

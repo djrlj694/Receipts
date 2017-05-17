@@ -117,8 +117,9 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             editingReceipt.photo = photo
             if !receiptStore.save() {
                 print("There was a problem saving the receipt store.")
+            } else {
+                delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [editingReceipt])
             }
-            delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [editingReceipt])
 
         } else {
             
@@ -133,8 +134,9 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             receiptStore.addReceipt(newReceipt)
             if !receiptStore.save() {
                 print("There was a problem saving the receipt store.")
+            } else {
+                delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [newReceipt])
             }
-            delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [newReceipt])
             
         }
         
