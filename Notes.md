@@ -50,6 +50,7 @@
 * We should not be allocating formatters for every cell render.
 	* Maybe have VCs conform to PresentationValueFormatting
 * `syncReceipts` should avoid the full reload and use table view animated additions apis.
+* Should dry up the logic for receipt for indexPath as that could change if grouping were introduced.
 
 ## ReceiptDetailViewController
 
