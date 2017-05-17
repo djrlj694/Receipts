@@ -23,6 +23,8 @@
 		1AB24BD11EC3A9DD005E52B1 /* sample-receipt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AB24BD01EC3A9DD005E52B1 /* sample-receipt.jpg */; };
 		1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF241EB033F30019DEA2 /* Receipt.swift */; };
 		1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */; };
+		1AF199331ECC0AB400D08AB7 /* NewReceiptFormViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF199321ECC0AB400D08AB7 /* NewReceiptFormViewControllerTests.swift */; };
+		53B42164BEFEA4ECF8B3ADBD /* Pods_ReceiptsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32310D65E99E91D1347CB872 /* Pods_ReceiptsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,12 @@
 		1AD4AF241EB033F30019DEA2 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1AD4AF261EB036AF0019DEA2 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
+		1AF199321ECC0AB400D08AB7 /* NewReceiptFormViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReceiptFormViewControllerTests.swift; sourceTree = "<group>"; };
+		1AFD07131ECC1111000A34F4 /* ReceiptsTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReceiptsTests-Bridging-Header.h"; path = "ReceiptsTests/ReceiptsTests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		32310D65E99E91D1347CB872 /* Pods_ReceiptsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceiptsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E355A089E2008B477DF02789 /* Pods_Receipts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Receipts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE90264655DAC0AB705923DC /* Pods-ReceiptsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiptsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiptsTests/Pods-ReceiptsTests.release.xcconfig"; sourceTree = "<group>"; };
+		F59B5D1803A43C26215CE734 /* Pods-ReceiptsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiptsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReceiptsTests/Pods-ReceiptsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B42164BEFEA4ECF8B3ADBD /* Pods_ReceiptsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +110,8 @@
 				1A4D82691EB0320B00C6BCD8 /* ReceiptsTests */,
 				1A4D82741EB0320C00C6BCD8 /* ReceiptsUITests */,
 				1A4D82531EB0320B00C6BCD8 /* Products */,
+				E95C8F26C30AA7BAAD6506D2 /* Pods */,
+				1C7E70F221F952C627C343B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,8 +150,10 @@
 		1A4D82691EB0320B00C6BCD8 /* ReceiptsTests */ = {
 			isa = PBXGroup;
 			children = (
+				1AFD07131ECC1111000A34F4 /* ReceiptsTests-Bridging-Header.h */,
 				1A4D826A1EB0320B00C6BCD8 /* ReceiptsTests.swift */,
 				1A4D826C1EB0320B00C6BCD8 /* Info.plist */,
+				1AF199321ECC0AB400D08AB7 /* NewReceiptFormViewControllerTests.swift */,
 			);
 			path = ReceiptsTests;
 			sourceTree = "<group>";
@@ -152,6 +165,24 @@
 				1A4D82771EB0320C00C6BCD8 /* Info.plist */,
 			);
 			path = ReceiptsUITests;
+			sourceTree = "<group>";
+		};
+		1C7E70F221F952C627C343B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E355A089E2008B477DF02789 /* Pods_Receipts.framework */,
+				32310D65E99E91D1347CB872 /* Pods_ReceiptsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E95C8F26C30AA7BAAD6506D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F59B5D1803A43C26215CE734 /* Pods-ReceiptsTests.debug.xcconfig */,
+				EE90264655DAC0AB705923DC /* Pods-ReceiptsTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A4D827D1EB0320C00C6BCD8 /* Build configuration list for PBXNativeTarget "ReceiptsTests" */;
 			buildPhases = (
+				E1827A69B358D4CA97C2AA0D /* [CP] Check Pods Manifest.lock */,
 				1A4D82621EB0320B00C6BCD8 /* Sources */,
 				1A4D82631EB0320B00C6BCD8 /* Frameworks */,
 				1A4D82641EB0320B00C6BCD8 /* Resources */,
+				9FBD0824DC9A2CC5C21A518C /* [CP] Embed Pods Frameworks */,
+				95D16A26422E2DA1A67C9C62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,6 +319,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95D16A26422E2DA1A67C9C62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiptsTests/Pods-ReceiptsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FBD0824DC9A2CC5C21A518C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReceiptsTests/Pods-ReceiptsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1827A69B358D4CA97C2AA0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1A4D824E1EB0320B00C6BCD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -306,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF199331ECC0AB400D08AB7 /* NewReceiptFormViewControllerTests.swift in Sources */,
 				1A4D826B1EB0320B00C6BCD8 /* ReceiptsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,13 +555,14 @@
 		};
 		1A4D827E1EB0320C00C6BCD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F59B5D1803A43C26215CE734 /* Pods-ReceiptsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReceiptsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zornlabs.ReceiptsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReceiptsTests/ReceiptsTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Receipts.app/Receipts";
 			};
@@ -486,13 +570,14 @@
 		};
 		1A4D827F1EB0320C00C6BCD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE90264655DAC0AB705923DC /* Pods-ReceiptsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReceiptsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zornlabs.ReceiptsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReceiptsTests/ReceiptsTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Receipts.app/Receipts";
 			};
@@ -501,7 +586,6 @@
 		1A4D82811EB0320C00C6BCD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ReceiptsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zornlabs.ReceiptsUITests;
@@ -514,7 +598,6 @@
 		1A4D82821EB0320C00C6BCD8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ReceiptsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zornlabs.ReceiptsUITests;

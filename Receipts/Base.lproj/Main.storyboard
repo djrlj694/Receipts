@@ -375,7 +375,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XZG-zv-hwT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1MN-1V-BS8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewReceiptFormViewControllerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="1MN-1V-BS8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PD4-iq-N6d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

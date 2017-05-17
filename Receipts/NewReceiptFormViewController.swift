@@ -188,14 +188,14 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
     
     func updateFormUI() {
         
-        if photo != nil {
-            addPhotoRow.isHidden = true
-            removePhotoRow.isHidden = false
-        } else {
-            addPhotoRow.isHidden = false
-            removePhotoRow.isHidden = true
-        }
-        photoImageView.image = photo
+//        if photo != nil {
+//            addPhotoRow.isHidden = true
+//            removePhotoRow.isHidden = false
+//        } else {
+//            addPhotoRow.isHidden = false
+//            removePhotoRow.isHidden = true
+//        }
+//        photoImageView.image = photo
         
     }
     
