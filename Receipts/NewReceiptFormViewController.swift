@@ -1,14 +1,15 @@
 import UIKit
 
 protocol NewReceiptFormViewControllerDelegate: class {
-    func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt)
-    func newReceiptFormViewControllerDidCancel()
+    func newReceiptFormViewControllerDidFinish(changedReceipts: [Receipt])
 }
 
 class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     weak var delegate: NewReceiptFormViewControllerDelegate?
     var photo: UIImage?
+    
+    var receiptStore: ReceiptStore!
     var editingReceipt: Receipt?
     
     @IBOutlet var titleTextField: UITextField!
@@ -54,7 +55,7 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
         guard view.endEditing(false) else {
             return
         }
-        delegate?.newReceiptFormViewControllerDidCancel()
+        delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [])
     }
     
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
@@ -114,8 +115,10 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             }
             
             editingReceipt.photo = photo
-            
-            delegate?.newReceiptFormViewControllerDidSaveReceipt(receipt: editingReceipt)
+            if !receiptStore.save() {
+                print("There was a problem saving the receipt store.")
+            }
+            delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [editingReceipt])
 
         } else {
             
@@ -127,8 +130,12 @@ class NewReceiptFormViewController: UIViewController, DatePickerInputViewDelegat
             let date = f2.date(from: dateTextField.text!)!
             
             let newReceipt = Receipt(title: title, date: date, amount: amount, photo: photo)
-            delegate?.newReceiptFormViewControllerDidSaveReceipt(receipt: newReceipt)
-
+            receiptStore.addReceipt(newReceipt)
+            if !receiptStore.save() {
+                print("There was a problem saving the receipt store.")
+            }
+            delegate?.newReceiptFormViewControllerDidFinish(changedReceipts: [newReceipt])
+            
         }
         
     }

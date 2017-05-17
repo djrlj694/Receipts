@@ -11,9 +11,11 @@
 * Consider moving `private` methods to bottom and grouping with `MARK://`.
 * Lack of localization.
 * Might want to consider a fuller design of toasts or in-app notifications.
+* New store takes a long time to save on main thread.
 
 ## ReceiptsListViewController
 
+* Change name to singular? ReceiptListViewController
 * Make a new object that can be the table view data source and delegate.
 * Make a new object that can own the receipts and handle persistence.
 * Remove the weak from the tableView outlet. Apple recommends strong outlet as of WWDC 2015.

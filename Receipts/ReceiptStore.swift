@@ -11,6 +11,7 @@ class ReceiptStore {
     }
     
     /// Receives a receipt and appends it to our internal collection of receipts.
+    /// If the receipt was already a member of our collection, we do not change it's position.
     /// Note: You must call save() for any perseistance to occur.
     ///
     /// - Parameter receipt: the receipt to be added to the store

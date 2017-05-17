@@ -47,6 +47,25 @@ class ReceiptStoreTests: XCTestCase {
         XCTAssertEqual(store.receipts.count, 0)
     }
     
+    func testAppendBehaviorWhenAlreadyPresent() {
+        let storeURL = randomReceiptStoreURL()
+        let store = ReceiptStore(fileURL: storeURL)
+        
+        let r1 = Receipt(title: UUID().uuidString, date: Date(), amount: NSDecimalNumber(string: "12.34"))
+        store.addReceipt(r1)
+        
+        let r2 = Receipt(title: UUID().uuidString, date: Date(), amount: NSDecimalNumber(string: "12.34"))
+        store.addReceipt(r2)
+        
+        let r3 = Receipt(title: UUID().uuidString, date: Date(), amount: NSDecimalNumber(string: "12.34"))
+        store.addReceipt(r3)
+        
+        let indexOfR1Before = store.receipts.index(of: r1)
+        store.addReceipt(r1)
+        let indexOfR1After = store.receipts.index(of: r1)
+        XCTAssertEqual(indexOfR1Before, indexOfR1After)
+    }
+    
     //Mark: - Private
     
     private func randomReceiptStoreURL() -> URL {
