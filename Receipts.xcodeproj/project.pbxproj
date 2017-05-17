@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A4D82561EB0320B00C6BCD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D82551EB0320B00C6BCD8 /* AppDelegate.swift */; };
-		1A4D82581EB0320B00C6BCD8 /* ReceiptsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D82571EB0320B00C6BCD8 /* ReceiptsListViewController.swift */; };
+		1A4D82581EB0320B00C6BCD8 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D82571EB0320B00C6BCD8 /* ReceiptListViewController.swift */; };
 		1A4D825B1EB0320B00C6BCD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D82591EB0320B00C6BCD8 /* Main.storyboard */; };
 		1A4D825D1EB0320B00C6BCD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D825C1EB0320B00C6BCD8 /* Assets.xcassets */; };
 		1A4D82601EB0320B00C6BCD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D825E1EB0320B00C6BCD8 /* LaunchScreen.storyboard */; };
@@ -48,7 +48,7 @@
 /* Begin PBXFileReference section */
 		1A4D82521EB0320B00C6BCD8 /* Receipts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Receipts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4D82551EB0320B00C6BCD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A4D82571EB0320B00C6BCD8 /* ReceiptsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsListViewController.swift; sourceTree = "<group>"; };
+		1A4D82571EB0320B00C6BCD8 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
 		1A4D825A1EB0320B00C6BCD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A4D825C1EB0320B00C6BCD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A4D825F1EB0320B00C6BCD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 				1A595CF31ECBD03A003AE033 /* DeveloperSettings.swift */,
 				1A595CEE1ECBB79F003AE033 /* Persistence */,
 				1A4D82551EB0320B00C6BCD8 /* AppDelegate.swift */,
-				1A4D82571EB0320B00C6BCD8 /* ReceiptsListViewController.swift */,
+				1A4D82571EB0320B00C6BCD8 /* ReceiptListViewController.swift */,
 				1A73EF881EB7C19300089FD3 /* ReceiptDetailViewController.swift */,
 				1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */,
 				1AD4AF241EB033F30019DEA2 /* Receipt.swift */,
@@ -313,7 +313,7 @@
 				1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */,
 				1A595CF41ECBD03A003AE033 /* DeveloperSettings.swift in Sources */,
 				1A73EF8B1EB7D26500089FD3 /* NewReceiptFormViewController.swift in Sources */,
-				1A4D82581EB0320B00C6BCD8 /* ReceiptsListViewController.swift in Sources */,
+				1A4D82581EB0320B00C6BCD8 /* ReceiptListViewController.swift in Sources */,
 				1A4D82561EB0320B00C6BCD8 /* AppDelegate.swift in Sources */,
 				1A73EF8D1EB7DC0A00089FD3 /* DatePickerInputView.swift in Sources */,
 				1A73EF891EB7C19300089FD3 /* ReceiptDetailViewController.swift in Sources */,

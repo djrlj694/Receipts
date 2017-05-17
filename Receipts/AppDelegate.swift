@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        guard let listVC = navController.topViewController as? ReceiptsListViewController else {
+        guard let listVC = navController.topViewController as? ReceiptListViewController else {
             assertionFailure("Expected the navigation controller to launch with a root ReceiptsListViewController instance")
             return
         }
