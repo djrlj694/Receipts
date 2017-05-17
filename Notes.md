@@ -1,10 +1,5 @@
 # Refactoring Ideas
 
-## AppDelegate
-
-* Remove the comment copyrights at the top of every file.
-* Remove all of the empty templated methods.
-
 ## Global
 
 * Everything should have `private` where they can.
