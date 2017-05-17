@@ -16,7 +16,6 @@
 ## ReceiptsListViewController
 
 * Better safety nets for dependency injection.
-* Change name to singular? ReceiptListViewController
 * Remove the weak from the tableView outlet. Apple recommends strong outlet as of WWDC 2015.
 * All the stuff in viewDidLoad should be broken down into their own self documenting methods.
 	* configureTableView()

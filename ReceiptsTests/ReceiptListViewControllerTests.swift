@@ -5,7 +5,7 @@ class ReceiptListViewControllerTests: XCTestCase {
     
     func testSyncActionAddsRowsToTableView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = storyboard.instantiateViewController(withIdentifier: "ReceiptsListViewController") as! ReceiptsListViewController
+        let listVC = storyboard.instantiateViewController(withIdentifier: "ReceiptListViewController") as! ReceiptListViewController
         let storeURL = DeveloperSettings.randomReceiptStoreURL()
         let store = ReceiptStore(fileURL: storeURL)
         listVC.receiptStore = store
