@@ -16,17 +16,6 @@
 ## ReceiptsListViewController
 
 * Better safety nets for dependency injection.
-* Remove the weak from the tableView outlet. Apple recommends strong outlet as of WWDC 2015.
-* All the stuff in viewDidLoad should be broken down into their own self documenting methods.
-	* configureTableView()
-	* loadReceiptsFromDisk()
-	* setupNotificationForAutosave()
-* Add a deinit with a removeObserver call to mirror the setup
-	* `NotificationCenter.default.removeObserver(self)`
-	*  UIViewController will do this for you automatically.
-* Consider removing the auto-row-deselection behavior and putting it in a protocol extension.
-* Remove the memory warning if you aren't going to use it.
-	* You may want to use it, see Receipt Model below.
 * It's dangerous to use strings for the segue identifiers. Make an enum or something to symbolize them.
 * When unpacking cells avoid the use of as!. If the cell type can not be matched we want a failure not a crash.
 	* While we don't have analytics installed, it would be good use of them to report these things as non-crash error events.
