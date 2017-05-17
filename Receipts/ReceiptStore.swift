@@ -18,6 +18,21 @@ class ReceiptStore {
         receipts.append(receipt)
     }
     
+    /// Removes the given receipt from the internal collection of receipts.
+    ///
+    /// - Parameter receipt: the receipt to be removed
+    public func removeReceipt(_ receipt: Receipt) {
+        
+        guard receipts.contains(receipt) else {
+            assertionFailure("Questionable to call remove when receipt is not already present in collection.")
+            return
+        }
+        
+        if let index = receipts.index(of: receipt) {
+            receipts.remove(at: index)
+        }
+    }
+    
     /// Serializes the current receipts to disk.
     ///
     /// - Returns: a Bool to signal if the save was successful
