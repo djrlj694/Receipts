@@ -6,11 +6,17 @@
 * Consider moving `private` methods to bottom and grouping with `MARK://`.
 * Lack of localization.
 * Might want to consider a fuller design of toasts or in-app notifications.
+* New store takes a long time to save on main thread.
+
+## ReceiptStore
+
+* One could imagine ripping out the persistence responsibilities of this class into something more generic.
+* Should have a better way to inform the user when a save fails.
 
 ## ReceiptsListViewController
 
+* Change name to singular? ReceiptListViewController
 * Make a new object that can be the table view data source and delegate.
-* Make a new object that can own the receipts and handle persistence.
 * Remove the weak from the tableView outlet. Apple recommends strong outlet as of WWDC 2015.
 * All the stuff in viewDidLoad should be broken down into their own self documenting methods.
 	* configureTableView()
@@ -39,7 +45,7 @@
 * We should not be allocating formatters for every cell render.
 	* Maybe have VCs conform to PresentationValueFormatting
 * `syncReceipts` should avoid the full reload and use table view animated additions apis.
-* `newReceiptFormViewControllerDidSaveReceipt` and `save` should interface with a store instead of the raw array
+* Should dry up the logic for receipt for indexPath as that could change if grouping were introduced.
 
 ## ReceiptDetailViewController
 

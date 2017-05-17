@@ -2,6 +2,7 @@ import UIKit
 
 class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControllerDelegate {
     
+    var receiptStore: ReceiptStore!
     var receipt: Receipt?
     
     @IBOutlet var titleLabel: UILabel!
@@ -30,32 +31,7 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
             let vc = navigationController.topViewController as! NewReceiptFormViewController
             vc.delegate = self
             vc.editingReceipt = receipt
-        }
-    }
-    
-    func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt) {
-        
-        precondition(receipt == self.receipt!, "We should only get back the same receipt we passed in.")
-        
-        if let receipt = self.receipt {
-            titleLabel.text = receipt.title
-            let f1 = NumberFormatter()
-            f1.numberStyle = .currency
-            amountLabel.text = f1.string(from: receipt.amount)
-            let f2 = DateFormatter()
-            f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
-            dateLabel.text = f2.string(from: receipt.date)
-            imageView.image = receipt.photo
-        }
-        
-        if view.endEditing(false) {
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func newReceiptFormViewControllerDidCancel() {
-        if view.endEditing(false) {
-            dismiss(animated: true, completion: nil)
+            vc.receiptStore = receiptStore
         }
     }
     
@@ -117,6 +93,31 @@ class ReceiptDetailViewController: UIViewController, NewReceiptFormViewControlle
         alertVC.addAction(cancel)
         alertVC.addAction(share)
         present(alertVC, animated: true, completion: nil)
+    }
+    
+    //MARK: - NewReceiptFormViewControllerDelegate
+    
+    func newReceiptFormViewControllerDidFinish(changedReceipts: [Receipt]) {
+        guard changedReceipts.count > 0 else {
+            dismiss(animated: true, completion: nil)
+            return // there were no changes, user canceled edit
+        }
+        
+        precondition(changedReceipts.count == 1, "We expect one changedReceipt, the one we passed in.")
+        precondition(changedReceipts[0] == self.receipt!, "We expect to get back the same receipt we passed in.")
+        
+        if let receipt = self.receipt {
+            titleLabel.text = receipt.title
+            let f1 = NumberFormatter()
+            f1.numberStyle = .currency
+            amountLabel.text = f1.string(from: receipt.amount)
+            let f2 = DateFormatter()
+            f2.dateFormat = "EEEE, MMM d, yyyy h:mm a"
+            dateLabel.text = f2.string(from: receipt.date)
+            imageView.image = receipt.photo
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 
 }

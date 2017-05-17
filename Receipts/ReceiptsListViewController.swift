@@ -1,9 +1,13 @@
 import UIKit
 
 class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptFormViewControllerDelegate {
-
+    
+    var receiptStore: ReceiptStore!
+    var receipts: [Receipt] {
+        return receiptStore.receipts
+    }
+    
     let remoteStore = ReceiptRemoteStore()
-    var receipts: [Receipt] = []
     var saveNotificationObserver: NSObjectProtocol?
     
     @IBOutlet weak var tableView: UITableView!
@@ -11,21 +15,13 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsMultipleSelectionDuringEditing = false
-        
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let documentsURL = URL(fileURLWithPath: documentsPath)
-        let storeURL = documentsURL.appendingPathComponent("db.receipts")
-        if let unarchivedReceipts = NSKeyedUnarchiver.unarchiveObject(withFile: storeURL.path) as? [Receipt] {
-            receipts = unarchivedReceipts
-        }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(ReceiptsListViewController.save), name: NSNotification.Name(rawValue: "UIApplicationWillResignActiveNotification"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
 
@@ -41,10 +37,12 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
             let receipt = receipts[indexPath.row]
             let vc = segue.destination as! ReceiptDetailViewController
             vc.receipt = receipt
+            vc.receiptStore = receiptStore
         } else if segue.identifier == "showNewForm" {
             let navigationController = segue.destination as! UINavigationController
             let vc = navigationController.topViewController as! NewReceiptFormViewController
             vc.delegate = self
+            vc.receiptStore = receiptStore
         }
     }
     
@@ -62,24 +60,11 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
-    func newReceiptFormViewControllerDidSaveReceipt(receipt: Receipt) {
-        
-        if !receipts.contains(receipt) {
-            receipts.append(receipt)
-        }
-        tableView.reloadData()
-        
-        save()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func newReceiptFormViewControllerDidCancel() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func syncReceipts(_ sender: UIBarButtonItem) {
         let newReceipts = remoteStore.getNewRecieptsSinceLastSync()
-        receipts.append(contentsOf: newReceipts)
+        newReceipts.forEach { (receipt) in
+            receiptStore.addReceipt(receipt)
+        }
         tableView.reloadData()
     }
     
@@ -89,19 +74,24 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            receipts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let selectedReceipt = receipts[indexPath.row]
+            receiptStore.removeReceipt(selectedReceipt)
+            if receiptStore.save() {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                print("Could not save receipt store")
+                tableView.reloadData()
+            }
         }
     }
     
-    func save() {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let documentsURL = URL(fileURLWithPath: documentsPath)
-        let storeURL = documentsURL.appendingPathComponent("db.receipts")
-        let success = NSKeyedArchiver.archiveRootObject(receipts, toFile: storeURL.path)
-        if !success {
-            print("Could not save data.")
+    //MARK: - NewReceiptFormViewControllerDelegate
+    
+    func newReceiptFormViewControllerDidFinish(changedReceipts: [Receipt]) {
+        if changedReceipts.count > 0 {
+            tableView.reloadData()
         }
+        dismiss(animated: true, completion: nil)
     }
 
 }
