@@ -1,6 +1,6 @@
 import UIKit
 
-class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptFormViewControllerDelegate {
+class ReceiptListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptFormViewControllerDelegate {
     
     var receiptStore: ReceiptStore!
     var receipts: [Receipt] {
