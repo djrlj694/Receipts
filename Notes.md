@@ -15,7 +15,7 @@
 
 ## ReceiptsListViewController
 
-* Make a new object that can be the table view data source and delegate.
+* Better safety nets for dependency injection.
 * Remove the weak from the tableView outlet. Apple recommends strong outlet as of WWDC 2015.
 * All the stuff in viewDidLoad should be broken down into their own self documenting methods.
 	* configureTableView()
