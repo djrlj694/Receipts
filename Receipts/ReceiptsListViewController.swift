@@ -10,7 +10,7 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     let remoteStore = ReceiptRemoteStore()
     var saveNotificationObserver: NSObjectProtocol?
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
