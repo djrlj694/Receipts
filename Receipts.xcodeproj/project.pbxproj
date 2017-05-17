@@ -26,6 +26,10 @@
 		1AB24BD11EC3A9DD005E52B1 /* sample-receipt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AB24BD01EC3A9DD005E52B1 /* sample-receipt.jpg */; };
 		1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF241EB033F30019DEA2 /* Receipt.swift */; };
 		1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */; };
+		1AD5611A1ECCC4C400DF4D53 /* ReceiptTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD561191ECCC4C400DF4D53 /* ReceiptTableViewManager.swift */; };
+		1AD5611C1ECCC88D00DF4D53 /* ReceiptListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5611B1ECCC88D00DF4D53 /* ReceiptListViewControllerTests.swift */; };
+		1AD5611E1ECCC91C00DF4D53 /* DeveloperSettings+TestingAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5611D1ECCC91C00DF4D53 /* DeveloperSettings+TestingAdditions.swift */; };
+		1AD561201ECCCA7D00DF4D53 /* BusinessSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5611F1ECCCA7D00DF4D53 /* BusinessSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		1AD4AF241EB033F30019DEA2 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1AD4AF261EB036AF0019DEA2 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		1AD4AF271EB0399F0019DEA2 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
+		1AD561191ECCC4C400DF4D53 /* ReceiptTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewManager.swift; sourceTree = "<group>"; };
+		1AD5611B1ECCC88D00DF4D53 /* ReceiptListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReceiptListViewControllerTests.swift; path = ReceiptsTests/ReceiptListViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
+		1AD5611D1ECCC91C00DF4D53 /* DeveloperSettings+TestingAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DeveloperSettings+TestingAdditions.swift"; sourceTree = "<group>"; };
+		1AD5611F1ECCCA7D00DF4D53 /* BusinessSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,9 +132,12 @@
 			isa = PBXGroup;
 			children = (
 				1A595CF31ECBD03A003AE033 /* DeveloperSettings.swift */,
+				1AD5611F1ECCCA7D00DF4D53 /* BusinessSettings.swift */,
 				1A595CEE1ECBB79F003AE033 /* Persistence */,
 				1A4D82551EB0320B00C6BCD8 /* AppDelegate.swift */,
 				1A4D82571EB0320B00C6BCD8 /* ReceiptsListViewController.swift */,
+				1AD5611B1ECCC88D00DF4D53 /* ReceiptListViewControllerTests.swift */,
+				1AD561191ECCC4C400DF4D53 /* ReceiptTableViewManager.swift */,
 				1A73EF881EB7C19300089FD3 /* ReceiptDetailViewController.swift */,
 				1A73EF8A1EB7D26500089FD3 /* NewReceiptFormViewController.swift */,
 				1AD4AF241EB033F30019DEA2 /* Receipt.swift */,
@@ -148,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				1A4D826A1EB0320B00C6BCD8 /* ReceiptsTests.swift */,
+				1AD5611D1ECCC91C00DF4D53 /* DeveloperSettings+TestingAdditions.swift */,
 				1A4D826C1EB0320B00C6BCD8 /* Info.plist */,
 			);
 			path = ReceiptsTests;
@@ -312,7 +324,9 @@
 				1AD4AF281EB0399F0019DEA2 /* ReceiptTableViewCell.swift in Sources */,
 				1AD4AF251EB033F30019DEA2 /* Receipt.swift in Sources */,
 				1A595CF41ECBD03A003AE033 /* DeveloperSettings.swift in Sources */,
+				1AD561201ECCCA7D00DF4D53 /* BusinessSettings.swift in Sources */,
 				1A73EF8B1EB7D26500089FD3 /* NewReceiptFormViewController.swift in Sources */,
+				1AD5611A1ECCC4C400DF4D53 /* ReceiptTableViewManager.swift in Sources */,
 				1A4D82581EB0320B00C6BCD8 /* ReceiptsListViewController.swift in Sources */,
 				1A4D82561EB0320B00C6BCD8 /* AppDelegate.swift in Sources */,
 				1A73EF8D1EB7DC0A00089FD3 /* DatePickerInputView.swift in Sources */,
@@ -325,8 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD5611C1ECCC88D00DF4D53 /* ReceiptListViewControllerTests.swift in Sources */,
 				1A595CF21ECBB7E0003AE033 /* ReceiptStoreTests.swift in Sources */,
 				1A4D826B1EB0320B00C6BCD8 /* ReceiptsTests.swift in Sources */,
+				1AD5611E1ECCC91C00DF4D53 /* DeveloperSettings+TestingAdditions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

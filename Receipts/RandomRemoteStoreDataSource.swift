@@ -15,7 +15,7 @@ class RandomRemoteStoreDataSource: ReceiptRemoteStoreDataSource {
         
         var response: String = ""
         
-        for _ in 1...5 {
+        for _ in 1...BusinessSettings.numberOfReceiptToGenerateDuringSyncAction {
             
             let randomTitleIndex = Int(arc4random_uniform(UInt32(possibleTitles.count)))
             let title = possibleTitles[randomTitleIndex]

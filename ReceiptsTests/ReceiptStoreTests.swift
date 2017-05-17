@@ -5,7 +5,7 @@ class ReceiptStoreTests: XCTestCase {
     
     func testMakeANewStoreAndSaveASingleReceipt() {
         
-        let storeURL = randomReceiptStoreURL()
+        let storeURL = DeveloperSettings.randomReceiptStoreURL()
         let store = ReceiptStore(fileURL: storeURL)
         let title = "Apple"
         let date = Date()
@@ -31,7 +31,7 @@ class ReceiptStoreTests: XCTestCase {
     
     func testCanDeleteFromStore() {
         
-        let storeURL = randomReceiptStoreURL()
+        let storeURL = DeveloperSettings.randomReceiptStoreURL()
         
         let store = ReceiptStore(fileURL: storeURL)
         let title = "Apple"
@@ -48,7 +48,7 @@ class ReceiptStoreTests: XCTestCase {
     }
     
     func testAppendBehaviorWhenAlreadyPresent() {
-        let storeURL = randomReceiptStoreURL()
+        let storeURL = DeveloperSettings.randomReceiptStoreURL()
         let store = ReceiptStore(fileURL: storeURL)
         
         let r1 = Receipt(title: UUID().uuidString, date: Date(), amount: NSDecimalNumber(string: "12.34"))
@@ -64,15 +64,6 @@ class ReceiptStoreTests: XCTestCase {
         store.addReceipt(r1)
         let indexOfR1After = store.receipts.index(of: r1)
         XCTAssertEqual(indexOfR1Before, indexOfR1After)
-    }
-    
-    //Mark: - Private
-    
-    private func randomReceiptStoreURL() -> URL {
-        let randomUUID = UUID().uuidString
-        let testFileName = "\(randomUUID).receipts)"
-        let storeURL = DeveloperSettings.receiptStoreFileURL(filename: testFileName)
-        return storeURL
     }
     
 }
