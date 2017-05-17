@@ -6,7 +6,7 @@ class ReceiptsListViewController: UIViewController, UITableViewDataSource, UITab
     var receipts: [Receipt] = []
     var saveNotificationObserver: NSObjectProtocol?
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
