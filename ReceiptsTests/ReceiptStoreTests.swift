@@ -5,13 +5,7 @@ class ReceiptStoreTests: XCTestCase {
     
     func testMakeANewStoreAndSaveASingleReceipt() {
         
-        // FIXME: Feel like this knowledge is better grouped with new class
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let documentsURL = URL(fileURLWithPath: documentsPath)
-        let randomUUID = UUID().uuidString
-        let testFileName = "\(randomUUID).receipts)"
-        let storeURL = documentsURL.appendingPathComponent(testFileName)
-        
+        let storeURL = randomReceiptStoreURL()
         let store = ReceiptStore(fileURL: storeURL)
         let title = "Apple"
         let date = Date()
@@ -37,12 +31,7 @@ class ReceiptStoreTests: XCTestCase {
     
     func testCanDeleteFromStore() {
         
-        // FIXME: Feel like this knowledge is better grouped with new class
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let documentsURL = URL(fileURLWithPath: documentsPath)
-        let randomUUID = UUID().uuidString
-        let testFileName = "\(randomUUID).receipts)"
-        let storeURL = documentsURL.appendingPathComponent(testFileName)
+        let storeURL = randomReceiptStoreURL()
         
         let store = ReceiptStore(fileURL: storeURL)
         let title = "Apple"
@@ -56,7 +45,15 @@ class ReceiptStoreTests: XCTestCase {
         
         store.removeReceipt(testReceipt)
         XCTAssertEqual(store.receipts.count, 0)
-
+    }
+    
+    //Mark: - Private
+    
+    private func randomReceiptStoreURL() -> URL {
+        let randomUUID = UUID().uuidString
+        let testFileName = "\(randomUUID).receipts)"
+        let storeURL = DeveloperSettings.receiptStoreFileURL(filename: testFileName)
+        return storeURL
     }
     
 }
